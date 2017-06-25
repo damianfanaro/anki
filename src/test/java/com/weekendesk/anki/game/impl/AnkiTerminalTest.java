@@ -26,9 +26,9 @@ public class AnkiTerminalTest {
     @Before
     public void setUp() {
         deck = new Deck();
-        deck.addCard(new Card("a", "1"));
-        deck.addCard(new Card("b", "2"));
-        deck.addCard(new Card("c", "3"));
+        deck.addCard(Card.of("a", "1"));
+        deck.addCard(Card.of("b", "2"));
+        deck.addCard(Card.of("c", "3"));
 
         mockedDeckWriter = mock(DeckFileWriter.class);
         doNothing().when(mockedDeckWriter).write(any(Deck.class), eq(AnkiConstants.RED_BOX_FILE_NAME));

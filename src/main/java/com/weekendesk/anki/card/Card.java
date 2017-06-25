@@ -14,11 +14,15 @@ public final class Card {
     private final String question;
     private final String answer;
 
-    public Card(String question, String answer) {
+    private Card(String question, String answer) {
         Objects.requireNonNull(question, "Question cannot be null!");
         Objects.requireNonNull(answer, "Answer cannot be null!");
         this.question = question;
         this.answer = answer;
+    }
+
+    public static Card of(String question, String answer) {
+        return new Card(question, answer);
     }
 
     public String getQuestion() {

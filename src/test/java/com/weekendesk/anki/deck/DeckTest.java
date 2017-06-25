@@ -14,9 +14,9 @@ public class DeckTest {
 
     @Test
     public void cardsSortedByQuestion() {
-        Card cardOne = new Card("a", "1");
-        Card cardTwo = new Card("b", "2");
-        Card cardThree = new Card("c", "3");
+        Card cardOne = Card.of("a", "1");
+        Card cardTwo = Card.of("b", "2");
+        Card cardThree = Card.of("c", "3");
 
         Deck sortedDeck = new Deck();
         sortedDeck.addCard(cardOne);
@@ -34,9 +34,9 @@ public class DeckTest {
 
     @Test
     public void cardsSortedByAnswer() {
-        Card cardOne = new Card("a", "1");
-        Card cardTwo = new Card("b", "2");
-        Card cardThree = new Card("c", "3");
+        Card cardOne = Card.of("a", "1");
+        Card cardTwo = Card.of("b", "2");
+        Card cardThree = Card.of("c", "3");
 
         Deck sortedDeck = new Deck();
         sortedDeck.addCard(cardOne);
@@ -60,7 +60,7 @@ public class DeckTest {
 
     @Test
     public void notEmptyDeck() {
-        Card card = new Card("a", "1");
+        Card card = Card.of("a", "1");
         Deck deck = new Deck();
         deck.addCard(card);
         Assert.assertTrue(!deck.empty());
@@ -69,7 +69,7 @@ public class DeckTest {
 
     @Test
     public void clearDeckCards() {
-        Card card = new Card("a", "1");
+        Card card = Card.of("a", "1");
         Deck deck = new Deck();
         deck.addCard(card);
         deck.clearCards();
@@ -79,7 +79,7 @@ public class DeckTest {
 
     @Test
     public void removeACard() {
-        Card card = new Card("a", "1");
+        Card card = Card.of("a", "1");
         Deck deck = new Deck();
         deck.addCard(card);
         deck.remove(card);

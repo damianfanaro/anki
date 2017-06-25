@@ -24,7 +24,7 @@ public class DeckFileReader {
     public Deck read(String deckFilePath) {
         Deck deck = new Deck();
         try (Stream<String> stream = Files.lines(Paths.get(deckFilePath))) {
-            stream.forEach(line -> CardUtil.newCardFromSimpleString(line, AnkiConstants.PIPE_CARD_SPLITTER).ifPresent(deck::addCard));
+            stream.forEach(line -> CardUtil.newCardFromSimpleString(line, AnkiConstants.CARD_SPLITTER).ifPresent(deck::addCard));
         } catch (IOException e) {
             System.out.println("An error has occurred when reading a deck from file. Reason: " + e.getMessage());
         }

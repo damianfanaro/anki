@@ -1,6 +1,7 @@
 package com.weekendesk.anki.deck;
 
 import com.weekendesk.anki.card.Card;
+import com.weekendesk.anki.game.AnkiConstants;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -26,7 +27,7 @@ public class DeckFileWriter {
             for (Iterator<Card> it = deck.getCardsStream().iterator(); it.hasNext(); ) {
                 Card card = it.next();
                 writer.write(card.getQuestion());
-                writer.write("|");
+                writer.write(AnkiConstants.CARD_SPLITTER);
                 writer.write(card.getAnswer());
                 writer.write("\n");
             }

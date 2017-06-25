@@ -12,25 +12,25 @@ public class CardTest {
 
     @Test(expected = NullPointerException.class)
     public void exceptionWhenQuestionIsNull() {
-        new Card(null, "Some answer");
+        Card.of(null, "Some answer");
     }
 
     @Test(expected = NullPointerException.class)
     public void exceptionWhenAnswerIsNull() {
-        new Card("Some question", null);
+        Card.of("Some question", null);
     }
 
     @Test
     public void cardsEquality() {
-        Card cardOne = new Card("Some question", "Some answer");
-        Card cardTwo = new Card("Some question", "Some answer");
+        Card cardOne = Card.of("Some question", "Some answer");
+        Card cardTwo = Card.of("Some question", "Some answer");
         Assert.assertTrue(cardOne.equals(cardTwo));
     }
 
     @Test
     public void cardsInequality() {
-        Card cardOne = new Card("Some question", "Some answer");
-        Card cardTwo = new Card("Some other question", "Some other answer");
+        Card cardOne = Card.of("Some question", "Some answer");
+        Card cardTwo = Card.of("Some other question", "Some other answer");
         Assert.assertFalse(cardOne.equals(cardTwo));
     }
 

@@ -24,7 +24,7 @@ public final class CardUtil {
     public static Optional<Card> newCardFromSimpleString(String rawCard, String splitter) {
         if (validCard(rawCard, splitter)) {
             String[] card = rawCard.split(splitter);
-            return Optional.of(new Card(card[0], card[1]));
+            return Optional.of(Card.of(card[0], card[1]));
         }
         return Optional.empty();
     }
