@@ -1,0 +1,58 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3 http://maven.apache.org/xsd/assembly-1.1.3.xsd">
+
+    <id>dist</id>
+
+    <formats>
+        <format>zip</format>
+        <format>tar.gz</format>
+    </formats>
+
+    <fileSets>
+
+        <fileSet>
+            <includes>
+                <include>README.md</include>
+                <include>ANKI-PROGRAM.md</include>
+                <include>runner.sh</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>assembly/box</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+            <outputDirectory>box</outputDirectory>
+        </fileSet>
+
+        <fileSet>
+            <directory>assembly/deck</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+            <outputDirectory>deck</outputDirectory>
+        </fileSet>
+
+        <fileSet>
+            <directory>.</directory>
+            <includes>
+                <include>assembly/</include>
+                <include>src/</include>
+                <include>pom.xml</include>
+            </includes>
+            <outputDirectory>sources</outputDirectory>
+        </fileSet>
+
+        <fileSet>
+            <directory>target</directory>
+            <includes>
+                <include>anki-dfanaro-jar-with-dependencies.jar</include>
+            </includes>
+            <outputDirectory>bin</outputDirectory>
+        </fileSet>
+
+    </fileSets>
+
+</assembly>
