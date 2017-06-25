@@ -10,7 +10,8 @@ import com.weekendesk.anki.game.AnkiGame;
 import java.util.Scanner;
 
 /**
- * TODO: complete with description
+ * Specific implementation of an {@link AnkiGame}
+ * that interacts with the user through the console.
  *
  * @author dfanaro
  */

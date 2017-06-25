@@ -9,12 +9,18 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 /**
- * TODO: complete with description
+ * Utility class that reads a deck from a file.
  *
  * @author dfanaro
  */
 public class DeckFileReader {
 
+    /**
+     * Reads a deck from a file.
+     *
+     * @param deckFilePath the file location of the deck
+     * @return a deck with cards inside
+     */
     public Deck read(String deckFilePath) {
         Deck deck = new Deck();
         try (Stream<String> stream = Files.lines(Paths.get(deckFilePath))) {

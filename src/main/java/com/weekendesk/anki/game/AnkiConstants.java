@@ -1,7 +1,7 @@
 package com.weekendesk.anki.game;
 
 /**
- * TODO: complete with description
+ * Constants of the system.
  *
  * @author dfanaro
  */

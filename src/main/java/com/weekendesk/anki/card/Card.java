@@ -3,7 +3,9 @@ package com.weekendesk.anki.card;
 import java.util.Objects;
 
 /**
- * TODO: complete with description
+ * Immutable object representing a card.
+ * <p>
+ * A card just encapsulates a question along with its answer.
  *
  * @author dfanaro
  */

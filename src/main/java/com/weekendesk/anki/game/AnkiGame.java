@@ -3,7 +3,13 @@ package com.weekendesk.anki.game;
 import com.weekendesk.anki.deck.Deck;
 
 /**
- * TODO: complete with description
+ * The abstract {@link AnkiGame} class defines,
+ * through a template method design pattern, how
+ * the game should behave.
+ * <p>
+ * It is agnostic of the way it will interact
+ * with the user. Sub-classes of this class
+ * will provide specific details of such interaction.
  *
  * @author dfanaro
  */
@@ -19,6 +25,10 @@ public abstract class AnkiGame {
         this.initialDeck = initialDeck;
     }
 
+    /**
+     * Starts the Anki Game by executing
+     * a well defined set of steps.
+     */
     public void start() {
         openStudySession();
         studyCards();

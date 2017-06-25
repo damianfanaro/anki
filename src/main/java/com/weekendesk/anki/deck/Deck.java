@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * TODO: complete with description
+ * A deck is just a wrapper of a list of {@link Card}s.
+ * <p>
+ * It provides convenient methods like sorting, adding, removing.
  *
  * @author dfanaro
  */

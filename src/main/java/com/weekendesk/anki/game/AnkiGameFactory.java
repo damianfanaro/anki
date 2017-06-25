@@ -6,12 +6,21 @@ import com.weekendesk.anki.deck.DeckFileWriter;
 import com.weekendesk.anki.game.impl.AnkiTerminal;
 
 /**
- * TODO: complete with description
+ * Convenient factory of different
+ * implementations of the Anki game.
  *
  * @author dfanaro
  */
 public final class AnkiGameFactory {
 
+    /**
+     * Returns a new instance of the Anki Game
+     * whose interaction with the user is made
+     * through the console.
+     *
+     * @param deck the initial deck of cards
+     * @return an {@link AnkiTerminal} instance
+     */
     public static AnkiGame newAnkiTerminal(Deck deck) {
         return new AnkiTerminal(deck, new DeckFileReader(), new DeckFileWriter());
     }

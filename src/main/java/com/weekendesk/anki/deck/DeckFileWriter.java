@@ -8,12 +8,19 @@ import java.io.IOException;
 import java.util.Iterator;
 
 /**
- * TODO: complete with description
+ * Utility class that writes a deck to a file.
  *
  * @author dfanaro
  */
 public class DeckFileWriter {
 
+    /**
+     * Given a {@link Deck} object, it tries to save its state
+     * into a file in the filesystem with the given filename.
+     *
+     * @param deck     the deck to be written in a file
+     * @param fileName the name of the file in the filesystem
+     */
     public void write(Deck deck, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (Iterator<Card> it = deck.getCardsStream().iterator(); it.hasNext(); ) {
