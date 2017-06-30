@@ -13,7 +13,7 @@ import java.util.Iterator;
  *
  * @author dfanaro
  */
-public class DeckFileWriter {
+public class DeckFileWriter implements DeckStorage {
 
     /**
      * Given a {@link Deck} object, it tries to save its state
@@ -34,6 +34,21 @@ public class DeckFileWriter {
         } catch (IOException e) {
             System.out.println("An error has occurred when writing a deck to a file. Reason: " + e.getMessage());
         }
+    }
+
+    @Override
+    public void saveRedDeck(Deck deck) {
+        write(deck, AnkiConstants.RED_BOX_FILE_NAME);
+    }
+
+    @Override
+    public void saveOrangeDeck(Deck deck) {
+        write(deck, AnkiConstants.ORANGE_BOX_FILE_NAME);
+    }
+
+    @Override
+    public void saveGreenDeck(Deck deck) {
+        write(deck, AnkiConstants.GREEN_BOX_FILE_NAME);
     }
 
 }

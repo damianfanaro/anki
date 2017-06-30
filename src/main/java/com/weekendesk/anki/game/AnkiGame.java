@@ -1,6 +1,8 @@
 package com.weekendesk.anki.game;
 
 import com.weekendesk.anki.deck.Deck;
+import com.weekendesk.anki.deck.DeckLoader;
+import com.weekendesk.anki.deck.DeckStorage;
 
 /**
  * The abstract {@link AnkiGame} class defines,
@@ -15,14 +17,19 @@ import com.weekendesk.anki.deck.Deck;
  */
 public abstract class AnkiGame {
 
+    private final DeckLoader deckLoader;
+    private final DeckStorage deckStorage;
+
     protected final Deck initialDeck;
 
     protected Deck redDeck;
     protected Deck orangeDeck;
     protected Deck greenDeck;
 
-    protected AnkiGame(Deck initialDeck) {
+    protected AnkiGame(Deck initialDeck, DeckLoader deckLoader, DeckStorage deckStorage) {
         this.initialDeck = initialDeck;
+        this.deckLoader = deckLoader;
+        this.deckStorage = deckStorage;
     }
 
     /**
@@ -30,10 +37,29 @@ public abstract class AnkiGame {
      * a well defined set of steps.
      */
     public void start() {
-        openStudySession();
+        loadDecks();
+        startSession();
         studyCards();
-        storeCards();
-        closeStudySession();
+        closeSession();
+        saveDecks();
+    }
+
+    private void loadDecks() {
+        redDeck = deckLoader.loadRedDeck();
+        orangeDeck = deckLoader.loadOrangeDeck();
+        greenDeck = deckLoader.loadGreenDeck();
+    }
+
+    protected abstract void startSession();
+
+    protected abstract void studyCards();
+
+    protected abstract void closeSession();
+
+    private void saveDecks() {
+        deckStorage.saveRedDeck(redDeck);
+        deckStorage.saveOrangeDeck(orangeDeck);
+        deckStorage.saveGreenDeck(greenDeck);
     }
 
     public Deck getRedDeck() {
@@ -48,12 +74,23 @@ public abstract class AnkiGame {
         return greenDeck;
     }
 
-    protected abstract void openStudySession();
+    protected boolean newGame() {
+        return redDeck.empty() && orangeDeck.empty() && greenDeck.empty();
+    }
 
-    protected abstract void studyCards();
+    protected boolean gameWon() {
+        return initialDeck.size() == greenDeck.size();
+    }
 
-    protected abstract void storeCards();
+    protected boolean stillCardsToStudy() {
+        return !redDeck.empty();
+    }
 
-    protected abstract void closeStudySession();
+    protected void moveCards() {
+        orangeDeck.getCardsStream().forEach(redDeck::addCard);
+        orangeDeck.clearCards();
+        greenDeck.getCardsStream().forEach(orangeDeck::addCard);
+        greenDeck.clearCards();
+    }
 
 }

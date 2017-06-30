@@ -3,7 +3,7 @@ package com.weekendesk.anki.game;
 import com.weekendesk.anki.deck.Deck;
 import com.weekendesk.anki.deck.DeckFileReader;
 import com.weekendesk.anki.deck.DeckFileWriter;
-import com.weekendesk.anki.game.impl.AnkiTerminal;
+import com.weekendesk.anki.game.impl.AnkiInteractiveTerminal;
 
 /**
  * Convenient factory of different
@@ -19,10 +19,10 @@ public final class AnkiGameFactory {
      * through the console.
      *
      * @param deck the initial deck of cards
-     * @return an {@link AnkiTerminal} instance
+     * @return an {@link AnkiInteractiveTerminal} instance
      */
     public static AnkiGame newAnkiTerminal(Deck deck) {
-        return new AnkiTerminal(deck, new DeckFileReader(), new DeckFileWriter());
+        return new AnkiInteractiveTerminal(deck, new DeckFileReader(), new DeckFileWriter());
     }
 
 }

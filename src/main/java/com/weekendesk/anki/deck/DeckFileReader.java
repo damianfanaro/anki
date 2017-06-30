@@ -13,7 +13,7 @@ import java.util.stream.Stream;
  *
  * @author dfanaro
  */
-public class DeckFileReader {
+public class DeckFileReader implements DeckLoader {
 
     /**
      * Reads a deck from a file.
@@ -29,6 +29,21 @@ public class DeckFileReader {
             System.out.println("An error has occurred when reading a deck from file. Reason: " + e.getMessage());
         }
         return deck;
+    }
+
+    @Override
+    public Deck loadRedDeck() {
+        return read(AnkiConstants.RED_BOX_FILE_NAME);
+    }
+
+    @Override
+    public Deck loadOrangeDeck() {
+        return read(AnkiConstants.ORANGE_BOX_FILE_NAME);
+    }
+
+    @Override
+    public Deck loadGreenDeck() {
+        return read(AnkiConstants.GREEN_BOX_FILE_NAME);
     }
 
 }
