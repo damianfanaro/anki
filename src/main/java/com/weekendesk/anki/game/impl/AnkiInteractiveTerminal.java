@@ -3,18 +3,18 @@ package com.weekendesk.anki.game.impl;
 import com.weekendesk.anki.card.Card;
 import com.weekendesk.anki.deck.Deck;
 import com.weekendesk.anki.deck.DeckStorage;
-import com.weekendesk.anki.game.AnkiGame;
+import com.weekendesk.anki.game.AbstractAnkiGame;
 import com.weekendesk.anki.deck.DeckLoader;
 
 import java.util.Scanner;
 
 /**
- * Specific implementation of an {@link AnkiGame}
+ * Specific implementation of an {@link AbstractAnkiGame}
  * that interacts with the user through the console.
  *
  * @author dfanaro
  */
-public class AnkiInteractiveTerminal extends AnkiGame {
+public class AnkiInteractiveTerminal extends AbstractAnkiGame {
 
     public AnkiInteractiveTerminal(Deck deck, DeckLoader deckLoader, DeckStorage deckStorage) {
         super(deck, deckLoader, deckStorage);

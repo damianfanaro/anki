@@ -21,7 +21,7 @@ public final class AnkiGameFactory {
      * @param deck the initial deck of cards
      * @return an {@link AnkiInteractiveTerminal} instance
      */
-    public static AnkiGame newAnkiTerminal(Deck deck) {
+    public static AbstractAnkiGame newAnkiTerminal(Deck deck) {
         return new AnkiInteractiveTerminal(deck, new DeckFileReader(), new DeckFileWriter());
     }
 

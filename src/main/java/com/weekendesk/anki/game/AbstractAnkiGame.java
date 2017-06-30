@@ -5,7 +5,7 @@ import com.weekendesk.anki.deck.DeckLoader;
 import com.weekendesk.anki.deck.DeckStorage;
 
 /**
- * The abstract {@link AnkiGame} class defines,
+ * The abstract {@link AbstractAnkiGame} class defines,
  * through a template method design pattern, how
  * the game should behave.
  * <p>
@@ -15,7 +15,7 @@ import com.weekendesk.anki.deck.DeckStorage;
  *
  * @author dfanaro
  */
-public abstract class AnkiGame {
+public abstract class AbstractAnkiGame {
 
     private final DeckLoader deckLoader;
     private final DeckStorage deckStorage;
@@ -26,7 +26,7 @@ public abstract class AnkiGame {
     protected Deck orangeDeck;
     protected Deck greenDeck;
 
-    protected AnkiGame(Deck initialDeck, DeckLoader deckLoader, DeckStorage deckStorage) {
+    protected AbstractAnkiGame(Deck initialDeck, DeckLoader deckLoader, DeckStorage deckStorage) {
         this.initialDeck = initialDeck;
         this.deckLoader = deckLoader;
         this.deckStorage = deckStorage;
