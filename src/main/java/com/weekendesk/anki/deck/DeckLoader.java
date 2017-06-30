@@ -1,7 +1,8 @@
 package com.weekendesk.anki.deck;
 
 /**
- * TODO: complete with description
+ * This contract defines the methods for loading
+ * the three decks of the game.
  *
  * @author dfanaro
  */

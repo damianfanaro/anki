@@ -43,16 +43,17 @@ public class AnkiInteractiveTerminalTest {
         when(mockedDeckLoader.loadOrangeDeck()).thenReturn(new Deck());
         when(mockedDeckLoader.loadGreenDeck()).thenReturn(new Deck());
 
-        AnkiInteractiveTerminal ankiGame = spy(new AnkiInteractiveTerminal(deck, mockedDeckLoader, mockedDeckStorage));
+        AnkiInteractiveTerminal interactiveTerminal = spy(new AnkiInteractiveTerminal(deck, mockedDeckLoader, mockedDeckStorage));
 
-        doNothing().when(ankiGame).pressEnter(any(Scanner.class));
-        doReturn(greenBox()).when(ankiGame).getBoxNumber(any(Scanner.class));
+        doNothing().when(interactiveTerminal).pressEnter(any(Scanner.class));
+        doReturn(greenBox()).when(interactiveTerminal).getBoxNumber(any(Scanner.class));
 
-        ankiGame.start();
+        interactiveTerminal.start();
 
-        Assert.assertTrue(ankiGame.getRedDeck().size() == 0);
-        Assert.assertTrue(ankiGame.getOrangeDeck().size() == 0);
-        Assert.assertTrue(ankiGame.getGreenDeck().size() == deck.size());
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().getRedDeck().size() == 0);
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().getOrangeDeck().size() == 0);
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().getGreenDeck().size() == deck.size());
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().gameWon());
     }
 
     @Test
@@ -62,16 +63,17 @@ public class AnkiInteractiveTerminalTest {
         when(mockedDeckLoader.loadOrangeDeck()).thenReturn(new Deck());
         when(mockedDeckLoader.loadGreenDeck()).thenReturn(new Deck());
 
-        AnkiInteractiveTerminal ankiGame = spy(new AnkiInteractiveTerminal(deck, mockedDeckLoader, mockedDeckStorage));
+        AnkiInteractiveTerminal interactiveTerminal = spy(new AnkiInteractiveTerminal(deck, mockedDeckLoader, mockedDeckStorage));
 
-        doNothing().when(ankiGame).pressEnter(any(Scanner.class));
-        doReturn(orangeBox()).when(ankiGame).getBoxNumber(any(Scanner.class));
+        doNothing().when(interactiveTerminal).pressEnter(any(Scanner.class));
+        doReturn(orangeBox()).when(interactiveTerminal).getBoxNumber(any(Scanner.class));
 
-        ankiGame.start();
+        interactiveTerminal.start();
 
-        Assert.assertTrue(ankiGame.getRedDeck().size() == deck.size());
-        Assert.assertTrue(ankiGame.getOrangeDeck().size() == 0);
-        Assert.assertTrue(ankiGame.getGreenDeck().size() == 0);
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().getRedDeck().size() == deck.size());
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().getOrangeDeck().size() == 0);
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().getGreenDeck().size() == 0);
+        Assert.assertFalse(interactiveTerminal.getAnkiGame().gameWon());
     }
 
     @Test
@@ -81,16 +83,17 @@ public class AnkiInteractiveTerminalTest {
         when(mockedDeckLoader.loadOrangeDeck()).thenReturn(new Deck());
         when(mockedDeckLoader.loadGreenDeck()).thenReturn(deck.getDeckCopy());
 
-        AnkiInteractiveTerminal ankiGame = spy(new AnkiInteractiveTerminal(deck, mockedDeckLoader, mockedDeckStorage));
+        AnkiInteractiveTerminal interactiveTerminal = spy(new AnkiInteractiveTerminal(deck, mockedDeckLoader, mockedDeckStorage));
 
-        doNothing().when(ankiGame).pressEnter(any(Scanner.class));
-        doReturn(greenBox()).when(ankiGame).getBoxNumber(any(Scanner.class));
+        doNothing().when(interactiveTerminal).pressEnter(any(Scanner.class));
+        doReturn(greenBox()).when(interactiveTerminal).getBoxNumber(any(Scanner.class));
 
-        ankiGame.start();
+        interactiveTerminal.start();
 
-        Assert.assertTrue(ankiGame.getRedDeck().size() == 0);
-        Assert.assertTrue(ankiGame.getOrangeDeck().size() == 0);
-        Assert.assertTrue(ankiGame.getGreenDeck().size() == deck.size());
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().getRedDeck().size() == 0);
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().getOrangeDeck().size() == 0);
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().getGreenDeck().size() == deck.size());
+        Assert.assertTrue(interactiveTerminal.getAnkiGame().gameWon());
     }
 
     private int orangeBox() {
