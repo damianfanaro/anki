@@ -1,9 +1,10 @@
 package com.weekendesk.anki.game;
 
+import com.weekendesk.anki.card.CardUtil;
 import com.weekendesk.anki.deck.Deck;
 import com.weekendesk.anki.deck.DeckFileReader;
 import com.weekendesk.anki.deck.DeckFileWriter;
-import com.weekendesk.anki.game.impl.AnkiInteractiveTerminal;
+import com.weekendesk.anki.game.impl.AnkiGameImpl;
 
 /**
  * Convenient factory of different
@@ -13,16 +14,11 @@ import com.weekendesk.anki.game.impl.AnkiInteractiveTerminal;
  */
 public final class AnkiGameFactory {
 
-    /**
-     * Returns a new instance of the Anki Game
-     * whose interaction with the user is made
-     * through the console.
-     *
-     * @param deck the initial deck of cards
-     * @return an {@link AnkiInteractiveTerminal} instance
-     */
-    public static AnkiInteractiveTerminal newAnkiTerminal(Deck deck) {
-        return new AnkiInteractiveTerminal(deck, new DeckFileReader(), new DeckFileWriter());
+    public static AnkiGame newAnkiGameImplDeckFromFileSystem() {
+        DeckFileReader deckFileReader = new DeckFileReader();
+        Deck deck = deckFileReader.read(AnkiConstants.DECK_PATH_SYSTEM_PROPERTY);
+        deck.sortCards(CardUtil.ALPHABETIC_ORDER_BY_QUESTION);
+        return new AnkiGameImpl(deck, new DeckFileReader(), new DeckFileWriter());
     }
 
 }

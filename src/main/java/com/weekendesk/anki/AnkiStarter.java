@@ -1,11 +1,7 @@
 package com.weekendesk.anki;
 
-import com.weekendesk.anki.card.CardUtil;
-import com.weekendesk.anki.deck.Deck;
-import com.weekendesk.anki.deck.DeckFileReader;
-import com.weekendesk.anki.game.AnkiConstants;
 import com.weekendesk.anki.game.AnkiGameFactory;
-import com.weekendesk.anki.game.impl.AnkiInteractiveTerminal;
+import com.weekendesk.anki.game.interactor.AnkiInteractiveTerminal;
 
 /**
  * Starter Anki class. It contains the application's entry point.
@@ -24,10 +20,13 @@ public final class AnkiStarter {
      * @param args of the program (no arguments required)
      */
     public static void main(String[] args) {
-        DeckFileReader deckFileReader = new DeckFileReader();
-        Deck deck = deckFileReader.read(AnkiConstants.DECK_PATH_SYSTEM_PROPERTY);
-        deck.sortCards(CardUtil.ALPHABETIC_ORDER_BY_QUESTION);
-        AnkiGameFactory.newAnkiTerminal(deck).start();
+
+        System.out.println("-------------------------------------------");
+        System.out.println("******  WELCOME TO THE ANKI PROGRAM  ******");
+        System.out.println("-------------------------------------------");
+
+        AnkiGameFactory.newAnkiGameImplDeckFromFileSystem().start(new AnkiInteractiveTerminal());
+
     }
 
 }
