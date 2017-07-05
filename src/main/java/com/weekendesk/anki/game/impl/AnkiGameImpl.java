@@ -43,11 +43,11 @@ public final class AnkiGameImpl implements AnkiGame {
     public void start(AnkiGameInteractor interactor) {
         this.ankiGameInteractor = interactor;
         loadDecks();
-        AnkiSession ankiSession = AnkiSession.of(getRedDeckSize(), getOrangeDeckSize(), getGreenDeckSize(), gameWon());
+        AnkiSession ankiSession = getCurrentSession();
         ankiGameInteractor.notifyStartingSessionStatus(ankiSession);
         studyCards();
         saveDecks();
-        ankiSession = AnkiSession.of(getRedDeckSize(), getOrangeDeckSize(), getGreenDeckSize(), gameWon());
+        ankiSession = getCurrentSession();
         ankiGameInteractor.notifyEndingSessionStatus(ankiSession);
     }
 
@@ -133,6 +133,10 @@ public final class AnkiGameImpl implements AnkiGame {
 
     private boolean newGame() {
         return redDeck.empty() && orangeDeck.empty() && greenDeck.empty();
+    }
+
+    private AnkiSession getCurrentSession() {
+        return AnkiSession.of(getRedDeckSize(), getOrangeDeckSize(), getGreenDeckSize(), gameWon());
     }
 
 }
