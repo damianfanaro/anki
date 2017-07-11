@@ -1,10 +1,14 @@
-##### Prerequisites:
+### Anki Game
+
+Anki is the Japanese word for **_memorization_**. For more information [click here](https://en.wikipedia.org/wiki/Anki_(software)).
+
+#### Prerequisites:
 
 > ♨ Java 1.8+ (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 > ☉ Maven 3.5+ (https://maven.apache.org/download.cgi)
 
-##### To generate distributable files run:
+#### To generate distributable files run:
 
 ``mvn clean package assembly:single``
 
@@ -32,7 +36,7 @@ anki-dfanaro-dist.[ zip | tar.gz ]
         └── src
 ```
 
-##### Running:
+#### Running:
 
 To play the game just run the `runner.sh` script.
 
@@ -44,7 +48,7 @@ Every line in the `deck` file correspond to a card with the following form:
 
 > Invalid lines will be ignored
 
-##### Notes:
+#### Notes:
 
 - This application does not contain special dependencies except for JUnit and Mockito for testing purposes.
 - For simplicity, it just interacts with the user through the standard output stream in the display. 
