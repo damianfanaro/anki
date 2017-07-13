@@ -41,6 +41,7 @@
                 <include>assembly/</include>
                 <include>src/</include>
                 <include>pom.xml</include>
+                <include>Dockerfile</include>
             </includes>
             <outputDirectory>sources</outputDirectory>
         </fileSet>
