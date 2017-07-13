@@ -31,6 +31,7 @@ anki-dfanaro-dist.[ zip | tar.gz ]
     │   └── deck
     ├── runner.sh
     └── sources
+        ├── Dockerfile
         ├── assembly
         ├── pom.xml
         └── src
