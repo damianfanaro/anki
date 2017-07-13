@@ -54,7 +54,7 @@ Every line in the `deck` file correspond to a card with the following form:
 - This application does not contain special dependencies except for JUnit and Mockito for testing purposes.
 - For simplicity, it just interacts with the user through the standard output stream in the display. 
 
-### Anki Game With Docker:
+### Anki Game With Docker
 
 This repo contains a [Dockerfile](./Dockerfile) at the root level, which means that the program is able to be built
 as a Docker image and then it can be run inside a Docker container.
